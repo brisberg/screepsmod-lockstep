@@ -4,8 +4,7 @@
   "description": "A Screeps Server Mod which prevents the server from ticking unless a tick() is requested. Suitable for unit/integration testing of scripts where you need fine-grained control over tick events.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "publish"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
