@@ -9,8 +9,7 @@ describe('ScreepsMod Lockstep', () => {
         '../bin/screeps.js',
     );
     const serverProc = cp.fork(path.resolve(execPath), ['start'], {
-      // cwd: path.join(__dirname, './tesEnv'),
-      cwd: __dirname,
+      cwd: path.join(__dirname, './testEnv'),
       stdio: 'inherit',
     });
 
