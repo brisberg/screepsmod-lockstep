@@ -6,18 +6,12 @@ describe('ScreepsMod Lockstep', () => {
   it('should launch a private server with the mod enabled', async () => {
     const execPath = path.resolve(
         path.dirname(require.resolve('@screeps/launcher')),
-        '../bin/start.js',
+        '../bin/screeps.js',
     );
-    const serverProc = cp.fork(path.resolve(execPath), {
-      //  cwd: './tesEnv/',
-      stdio: [0, 'pipe', 'pipe', 'ipc'],
-      env: Object.assign(
-          {
-            runners_cnt: 1,
-            processors_cnt: 1,
-            log_rotate_keep: 0,
-          },
-          process.env),
+    const serverProc = cp.fork(path.resolve(execPath), ['start'], {
+      // cwd: path.join(__dirname, './tesEnv'),
+      cwd: __dirname,
+      stdio: 'inherit',
     });
 
     await new Promise((resolve) => setTimeout(resolve, 4000));
