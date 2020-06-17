@@ -8,10 +8,11 @@ describe('ScreepsMod Lockstep', () => {
         path.dirname(require.resolve('@screeps/launcher')),
         '../bin/screeps.js',
     );
-    const serverProc = cp.fork(path.resolve(execPath), ['start'], {
-      cwd: path.join(__dirname, './testEnv'),
-      stdio: 'inherit',
-    });
+    const serverProc = cp.fork(
+        path.resolve(execPath),
+        ['start', '--steam_api_key', process.env.STEAM_API_KEY],
+        {cwd: path.join(__dirname, './testEnv'), stdio: 'inherit'},
+    );
 
     await new Promise((resolve) => setTimeout(resolve, 4000));
     serverProc.kill();

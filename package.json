@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/brisberg/screepsmod-lockstep#readme",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "jest": "^26.0.1",
     "screeps": "^4.1.6"
   }
