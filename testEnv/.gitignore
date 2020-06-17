@@ -1,7 +1,4 @@
 assets/
+data/
 logs/
-db.json
-mods.json
-steam_appid.txt
 .screepsrc
-package.json
