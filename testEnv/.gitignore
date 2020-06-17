@@ -1,0 +1,5 @@
+./assets
+./logs
+.db.json
+.mods.json
+.steam_appid.txt
