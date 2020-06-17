@@ -483,6 +483,14 @@
     lodash "^3.10.1"
     q "^1.4.1"
 
+"@screeps/common@github:brisberg/common#no-storage-restart":
+  version "2.13.2"
+  resolved "https://codeload.github.com/brisberg/common/tar.gz/99d9002360499bd62a6962cffdb1447f78c54094"
+  dependencies:
+    eslint "^5.12.1"
+    lodash "^3.10.1"
+    q "^1.4.1"
+
 "@screeps/driver@5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@screeps/driver/-/driver-5.1.0.tgz#2f36bf30998e4be83de7a342859add2dd595889e"

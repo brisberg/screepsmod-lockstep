@@ -24,6 +24,7 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "jest": "^26.0.1",
-    "screeps": "^4.1.6"
+    "screeps": "^4.1.6",
+    "@screeps/common": "github:brisberg/common#no-storage-restart"
   }
 }
