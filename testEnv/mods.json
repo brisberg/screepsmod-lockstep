@@ -1,4 +1,6 @@
 {
-  "mods": [],
+  "mods": [
+    "../index.js"
+  ],
   "bots": {}
 }
