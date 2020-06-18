@@ -30,7 +30,6 @@ describe('ScreepsMod Lockstep', () => {
     // await common.storage.resetAllData();
     db = common.storage.db;
     env = common.storage.env;
-    await env.set(env.keys.MAIN_LOOP_PAUSED, '0');
   });
 
   afterEach(() => {
@@ -38,12 +37,8 @@ describe('ScreepsMod Lockstep', () => {
   })
 
   it('should launch a private server with the mod enabled', async () => {
-    // Pause
-    // await env.set(env.keys.MAIN_LOOP_PAUSED, '1');
-
     const startTime = await env.get(env.keys.GAMETIME);
     await env.set(LOCKSTEP_COUNT, 2);
-    // await env.set(env.keys.MAIN_LOOP_PAUSED, '0');
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
     expect(await env.get(env.keys.GAMETIME)).toEqual(startTime + 2)
