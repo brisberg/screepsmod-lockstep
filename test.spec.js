@@ -26,7 +26,6 @@ describe('ScreepsMod Lockstep', () => {
   beforeEach(async () => {
     serverProc = forkServerProcess();
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    // await setTimeout(() => {}, 100);
     await common.storage._connect();
     // await common.storage.resetAllData();
     db = common.storage.db;
@@ -42,16 +41,12 @@ describe('ScreepsMod Lockstep', () => {
     // Pause
     // await env.set(env.keys.MAIN_LOOP_PAUSED, '1');
 
-    const gameTime1 = await env.get(env.keys.GAMETIME);
-    // await env.set(LOCKSTEP_COUNT, 2);
+    const startTime = await env.get(env.keys.GAMETIME);
+    await env.set(LOCKSTEP_COUNT, 2);
     // await env.set(env.keys.MAIN_LOOP_PAUSED, '0');
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    const gameTime2 = await env.get(env.keys.GAMETIME);
-    expect(gameTime2).toEqual(gameTime1 + 3)
-    const key = env.keys.LOCKSTEP_COUNT;
-    console.log('key: ', key);
-    const lockstep = await env.get(LOCKSTEP_COUNT);
-    expect(lockstep).toEqual(undefined);
+    expect(await env.get(env.keys.GAMETIME)).toEqual(startTime + 2)
+    expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
   });
 });
