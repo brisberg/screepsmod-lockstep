@@ -41,7 +41,7 @@ modfile = mods.json
 assetdir = assets
 
 ;The path to the database file.
-db = data/db.json
+db = db.json
 
 ;If set, forward console messages to terminal
 log_console = false
