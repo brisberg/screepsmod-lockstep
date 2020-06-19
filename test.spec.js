@@ -28,7 +28,7 @@ describe('ScreepsMod Lockstep', () => {
     const ASSETS_PATH = path.join(__dirname, 'testEnv', 'data');
     const TEST_ENV_PATH = path.join(__dirname, 'testEnv');
     fs.copyFileSync(
-        path.join(ASSETS_PATH, 'db.json'),
+        path.join(ASSETS_PATH, 'orig_db.json'),
         path.join(TEST_ENV_PATH, 'db.json'),
     );
     serverProc = forkServerProcess();
