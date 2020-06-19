@@ -40,7 +40,6 @@ describe('ScreepsMod Lockstep', () => {
   });
 
   afterEach(async () => {
-    await common.storage.resetAllData();
     serverProc.kill();
   })
 
