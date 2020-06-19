@@ -1,6 +1,6 @@
 {
   "name": "@brisberg/screepsmod-lockstep",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Screeps Server Mod which prevents the server from ticking unless a tick() is requested. Suitable for unit/integration testing of scripts where you need fine-grained control over tick events.",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brisberg/screepsmod-lockstep.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "screeps_mod": true,
   "keywords": [
