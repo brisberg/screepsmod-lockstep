@@ -41,3 +41,11 @@ module.exports.launchScreepsProcess = async () => {
 
   return {serverProc, db, env};
 };
+
+/**
+ * Tears down and cleanup the screeps process.
+ */
+module.exports.killScreepsProcess = (serverProc) => {
+  serverProc.kill();
+  common.storage._connected = false;
+};

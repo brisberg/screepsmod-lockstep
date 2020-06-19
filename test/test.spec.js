@@ -1,5 +1,5 @@
 const {LOCKSTEP_COUNT} = require('../constants');
-const {launchScreepsProcess} = require('./helpers');
+const {launchScreepsProcess, killScreepsProcess} = require('./helpers');
 
 describe('ScreepsMod Lockstep', () => {
   let serverProc;
@@ -10,7 +10,7 @@ describe('ScreepsMod Lockstep', () => {
   });
 
   afterEach(async () => {
-    serverProc.kill();
+    killScreepsProcess(serverProc);
   })
 
   it('should launch a private server with the mod enabled', async () => {
