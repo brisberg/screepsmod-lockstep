@@ -1,3 +1,4 @@
+const q = require('q');
 const {LOCKSTEP_COUNT} = require('../constants');
 const {launchScreepsProcess, killScreepsProcess} = require('./helpers');
 
@@ -26,15 +27,13 @@ describe('ScreepsMod Lockstep', () => {
     expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
   });
 
-  it('should post over Pubsub when server becomes locked', async (done) => {
+  it('should post over Pubsub when server becomes locked', async () => {
     const startTime = await env.get(env.keys.GAMETIME);
-    pubsub.subscribe('lockstep:locked', (gameTime) => {
-      expect(gameTime).toEqual(startTime + 2)
-      done();
-    });
     await env.set(LOCKSTEP_COUNT, 2);
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // expect(pubsub.subscribe).toBe('locked');
+    const defer = q.defer();
+    pubsub.subscribe('lockstep:locked', (gameTime) => defer.resolve(gameTime));
+
+    expect(await defer.promise).toEqual(startTime + 2);
   });
 });
