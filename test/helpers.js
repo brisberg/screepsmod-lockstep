@@ -41,9 +41,9 @@ module.exports.launchScreepsProcess = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   await common.storage._connect();
   // await common.storage.resetAllData();
-  const {db, env} = common.storage;
+  const {db, env, pubsub} = common.storage;
 
-  return {serverProc, db, env};
+  return {serverProc, db, env, pubsub};
 };
 
 /**
