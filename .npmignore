@@ -1,0 +1,5 @@
+testEnv/
+jest.**.js
+**/**.spec.js
+yarn.lock
+screeps-testing-env
