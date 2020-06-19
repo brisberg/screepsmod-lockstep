@@ -16,7 +16,11 @@ function forkServerProcess() {
   return cp.fork(
       path.resolve(execPath),
       ['start', '--steam_api_key', process.env.STEAM_API_KEY],
-      {cwd: path.join(process.cwd(), './testEnv'), stdio: 'inherit'},
+      {
+        cwd: path.join(process.cwd(), './testEnv'),
+        silent: true,
+        // stdio: 'inherit',
+      },
   );
 };
 
