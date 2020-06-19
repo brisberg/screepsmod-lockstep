@@ -32,7 +32,8 @@ describe('ScreepsMod Lockstep', () => {
     env = common.storage.env;
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    await common.storage.resetAllData();
     serverProc.kill();
   })
 
