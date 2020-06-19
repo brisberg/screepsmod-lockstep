@@ -1,0 +1,18 @@
+# Lockstep (Screeps Server Mod)
+Lockstep will prevents the server from ticking unless a tick is specifically requested. Suitable for unit/integration testing of scripts where you need fine grained control over tick events.
+
+## Installation
+
+In your Screeps Server directory:
+
+```sh
+npm install @brisberg/screepsmod-lockstep
+```
+
+or
+
+```sh
+yarn add @brisberg/screepsmod-lockstep
+```
+
+Ensure that Screeps automatically added it to your `mods.json` file.

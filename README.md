@@ -9,7 +9,7 @@ In your Screeps Server directory:
 
 or
 
-```yarn install @brisberg/screepsmod-lockstep```
+```yarn add @brisberg/screepsmod-lockstep```
 
 Ensure that Screeps automatically added it to your `mods.json` file.
 

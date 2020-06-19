@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
 const common = require('@screeps/common');
-const {LOCKSTEP_COUNT} = require('./constants');
+const {LOCKSTEP_COUNT} = require('../constants');
 
 process.env.STORAGE_PORT = '24567';
 // process.env.STORAGE_HOST = 'localhost';
@@ -16,7 +16,7 @@ function forkServerProcess() {
   return cp.fork(
       path.resolve(execPath),
       ['start', '--steam_api_key', process.env.STEAM_API_KEY],
-      {cwd: path.join(__dirname, './testEnv'), stdio: 'inherit'},
+      {cwd: path.join(process.cwd(), './testEnv'), stdio: 'inherit'},
   );
 }
 
@@ -25,8 +25,8 @@ describe('ScreepsMod Lockstep', () => {
   let db, env;
 
   beforeEach(async () => {
-    const ASSETS_PATH = path.join(__dirname, 'testEnv', 'data');
-    const TEST_ENV_PATH = path.join(__dirname, 'testEnv');
+    const ASSETS_PATH = path.join(process.cwd(), 'testEnv', 'data');
+    const TEST_ENV_PATH = path.join(process.cwd(), 'testEnv');
     fs.copyFileSync(
         path.join(ASSETS_PATH, 'orig_db.json'),
         path.join(TEST_ENV_PATH, 'db.json'),
