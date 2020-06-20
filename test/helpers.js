@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
-const common = require('@screeps/common');
+const common = require('brisberg/common');
 
 process.env.STORAGE_PORT = '24567';
 // process.env.STORAGE_HOST = 'localhost';
@@ -51,5 +51,5 @@ module.exports.launchScreepsProcess = async () => {
  */
 module.exports.killScreepsProcess = (serverProc) => {
   serverProc.kill();
-  common.storage._connected = false;
+  // common.storage._connected = false;
 };
