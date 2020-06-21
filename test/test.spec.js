@@ -3,7 +3,7 @@ const {
   LOCKSTEP_COUNT,
   LOCKSTEP_UNLOCK,
   LOCKSTEP_LOCKED,
-} = require('../constants');
+} = require('../lib/constants');
 const {ScreepsTestServer} = require('@brisberg/screeps-test-server');
 
 describe('ScreepsMod Lockstep', () => {
