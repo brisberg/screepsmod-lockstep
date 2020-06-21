@@ -4,19 +4,26 @@ const {
   LOCKSTEP_UNLOCK,
   LOCKSTEP_LOCKED,
 } = require('../constants');
-const {launchScreepsProcess, killScreepsProcess} = require('./helpers');
+const {ScreepsTestServer} = require('@brisberg/screeps-test-server');
 
 describe('ScreepsMod Lockstep', () => {
-  let serverProc;
+  let server;
   let db, env, pubsub;
 
   beforeEach(async () => {
-    ({serverProc, db, env, pubsub} = await launchScreepsProcess());
+    // Launch a test server with local mod enabled
+    server = new ScreepsTestServer({
+      mods: ['../index.js'],
+      steamApiKey: process.env.STEAM_API_KEY,
+    });
+    ({db, env, pubsub} = server);
+    await server.start();
     pubsub.publish('setTickRate', 100);  // 10 ticks per sec
   });
 
   afterEach(() => {
-    killScreepsProcess(serverProc);
+    server.stop();
+    server, db, env, pubsub = undefined;
   })
 
   it('server should be paused on startup', async () => {

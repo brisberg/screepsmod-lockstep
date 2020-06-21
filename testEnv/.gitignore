@@ -1,4 +1,0 @@
-# Screeps server logs
-logs/
-# Ignore active database file
-db.json

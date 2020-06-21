@@ -27,13 +27,12 @@
     "constants.js"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest --runInBand"
   },
   "devDependencies": {
-    "brisberg/common": "github:brisberg/common#no-storage-restart",
+    "@brisberg/screeps-test-server": "^0.1.1",
     "dotenv": "^8.2.0",
     "jest": "^26.0.1",
-    "q": "^1.5.1",
-    "screeps": "^4.1.6"
+    "q": "^1.5.1"
   }
 }
