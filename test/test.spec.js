@@ -30,17 +30,18 @@ describe('ScreepsMod Lockstep', () => {
     expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
   });
 
-  it('should progress two ticks server unlocked for two ticks', async () => {
-    const startTime = await env.get(env.keys.GAMETIME);
-    const defer = q.defer();
-    pubsub.subscribe(LOCKSTEP_LOCKED, (gameTime) => defer.resolve(gameTime));
+  it('should progress two ticks when server unlocked for two ticks',
+     async () => {
+       const startTime = await env.get(env.keys.GAMETIME);
+       const defer = q.defer();
+       pubsub.subscribe(LOCKSTEP_LOCKED, (gameTime) => defer.resolve(gameTime));
 
-    pubsub.publish(LOCKSTEP_UNLOCK, 2);
-    await defer.promise;
+       pubsub.publish(LOCKSTEP_UNLOCK, 2);
+       await defer.promise;
 
-    expect(await env.get(env.keys.GAMETIME)).toEqual(startTime + 2);
-    expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
-  });
+       expect(await env.get(env.keys.GAMETIME)).toEqual(startTime + 2);
+       expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
+     });
 
   it('should publish gametime over Pubsub when server becomes locked',
      async () => {
