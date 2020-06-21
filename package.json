@@ -30,9 +30,10 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "@brisberg/screeps-test-server": "^0.1.1",
+    "@brisberg/screeps-test-server": "^0.1.2",
     "dotenv": "^8.2.0",
     "jest": "^26.0.1",
-    "q": "^1.5.1"
+    "q": "^1.5.1",
+    "screeps": "^4.1.6"
   }
 }

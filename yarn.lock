@@ -272,13 +272,12 @@
     lodash "^3.10.1"
     q "^1.4.1"
 
-"@brisberg/screeps-test-server@^0.1.1":
-  version "0.1.1"
-  resolved "https://npm.pkg.github.com/download/@brisberg/screeps-test-server/0.1.1/78197f27edbf80bf8815ca30af469d876c3cf12485250baa1edde9e85121e342#367d8175c1cb9843b69cd9e767e7b8ab6b8422b7"
-  integrity sha512-JLQmLwwrVr5+oixeo+vJuw8RZX1X7WlI5rux+AUSJCE7iPO/od6YH0/SOHKwxZPI9DvzTdcrwZDZ9B5XLFRSLQ==
+"@brisberg/screeps-test-server@^0.1.2":
+  version "0.1.2"
+  resolved "https://npm.pkg.github.com/download/@brisberg/screeps-test-server/0.1.2/cd162965d2200fdb25a839f95ab625eb563d9aa2af7d712760df52f7f3f9fe5b#9b5753dfb97d10fc5bb75ca13b48e124670b0bf9"
+  integrity sha512-ClP4dIcZT8IlIBPOwRNnd+IHK8p5Yega0qoMUuz9/TOTE8dA1x7Y4F29TZbIMUEEb6eaPFh91OyGOlF/x3pXJw==
   dependencies:
     "@brisberg/common" "github:brisberg/common#no-storage-restart"
-    screeps "^4.1.6"
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -492,7 +491,8 @@
 
 "@screeps/common@2.13.2":
   version "2.13.2"
-  resolved "https://codeload.github.com/brisberg/common/tar.gz/99d9002360499bd62a6962cffdb1447f78c54094"
+  resolved "https://registry.yarnpkg.com/@screeps/common/-/common-2.13.2.tgz#8968172ba3e44323351ba6e270d2c122fccfcdcb"
+  integrity sha512-H2PYkU238W2io3Ol8DkWZalSsQqw3LqpV89GbWFwDE/yHAOFmZrxb8Mr8rFPFC4CWDz8qO5kOZ++KcfgArwS5Q==
   dependencies:
     eslint "^5.12.1"
     lodash "^3.10.1"
@@ -729,9 +729,9 @@ acorn@^7.1.1:
   integrity sha512-tLc0wSnatxAQHVHUapaHdz72pi9KUyHjq5KyHjGg9Y8Ifdc79pTh2XvI6I1/chZbnM7QtNKzh66ooDogPZSleA==
 
 ajv-keywords@^3.1.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.4.1.tgz#ef916e271c64ac12171fd8384eaae6b2345854da"
-  integrity sha512-RO1ibKvd27e6FEShVFfPALuHI3WjSVNeK5FIsmme/LYRNxjKuNj+Dt7bucLa6NdSv3JcVTyMlm9kGR84z1XpaQ==
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.5.0.tgz#5c894537098785926d71e696114a53ce768ed773"
+  integrity sha512-eyoaac3btgU8eJlvh01En8OCKzRqlLe2G5jDsCr3RiE2uLGMEEB1aaGwVVpwR8M95956tGH6R+9edC++OvzaVw==
 
 ajv@^6.1.0, ajv@^6.10.2, ajv@^6.5.5, ajv@^6.9.1:
   version "6.12.2"
@@ -1850,9 +1850,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 elliptic@^6.0.0, elliptic@^6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.2.tgz#05c5678d7173c049d8ca433552224a495d0e3762"
-  integrity sha512-f4x70okzZbIQl/NSRLkI/+tteV/9WqL98zx+SQ69KbXxmVrmjwsNUPn/gYJJ0sHvEak24cZgHIPegRePAtA/xw==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.3.tgz#cb59eb2efdaf73a0bd78ccd7015a62ad6e0f93d6"
+  integrity sha512-IMqzv5wNQf+E6aHeIqATs0tOLeOTwj1QKbRcS3jBbYkl5oLAserA8yJTT7/VyHUYG91PRmPyeQDObKLPpeS4dw==
   dependencies:
     bn.js "^4.4.0"
     brorand "^1.0.1"
