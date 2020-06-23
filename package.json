@@ -1,6 +1,6 @@
 {
   "name": "@brisberg/typescript-pkg",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "<Description of TypeScript package>",
   "main": "lib/index.js",
   "keywords": [],
