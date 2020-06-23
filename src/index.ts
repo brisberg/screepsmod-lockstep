@@ -1,4 +1,4 @@
-module.exports = (config) => {
+function lockStepMod(config: {engine?: {}}) {
   // Common patch (for all modules)
   require('./common')(config);
 
@@ -7,3 +7,6 @@ module.exports = (config) => {
     require('./engine')(config);
   }
 };
+
+// CommonJS Style Export
+export = lockStepMod;

@@ -1,11 +1,7 @@
-const {
-  LOCKSTEP_COUNT,
-  LOCKSTEP_LOCKED,
-  LOCKSTEP_UNLOCK,
-} = require('./constants');
+import {LOCKSTEP_COUNT, LOCKSTEP_LOCKED, LOCKSTEP_UNLOCK} from './constants';
 
 /** Common component patch (all processes) */
-module.exports = (config) => {
+function commonPatch(config: any) {
   const {storage: {env, pubsub}} = config.common
 
   Object.assign(env.keys, {
@@ -17,3 +13,6 @@ module.exports = (config) => {
     LOCKSTEP_UNLOCK,
   });
 };
+
+// CommonJS Style Export
+export = commonPatch;

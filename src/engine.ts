@@ -1,6 +1,6 @@
 /** Engine component patch */
-module.exports = (cconfig) => {
-  cconfig.engine.on('init', async (processType) => {
+function enginePatch(cconfig: any) {
+  cconfig.engine.on('init', async (processType: string) => {
     if (processType === 'main') {
       // Modify engine config instance
       const config = cconfig.engine.driver.config;
@@ -11,7 +11,7 @@ module.exports = (cconfig) => {
       await env.set(env.keys.LOCKSTEP_COUNT, 0);
 
       // Subscribe to requests for tick
-      pubsub.subscribe('lockstep:unlock', async (ticks) => {
+      pubsub.subscribe(pubsub.keys.LOCKSTEP_UNLOCK, async (ticks: number) => {
         await env.set(env.keys.LOCKSTEP_COUNT, ticks);
       });
 
@@ -42,7 +42,7 @@ module.exports = (cconfig) => {
           if (+count) {
             count--;
             if (count === 0) {
-              pubsub.publish('lockstep:locked', gameTime);
+              pubsub.publish(pubsub.keys.LOCKSTEP_LOCKED, gameTime);
             }
             return env.set(env.keys.LOCKSTEP_COUNT, count);
           }
@@ -51,3 +51,6 @@ module.exports = (cconfig) => {
     }
   });
 };
+
+// CommonJS Style Export
+export = enginePatch;

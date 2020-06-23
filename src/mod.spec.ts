@@ -1,20 +1,22 @@
-const q = require('q');
-const {
+import q from 'q';
+
+import {
   LOCKSTEP_COUNT,
-  LOCKSTEP_UNLOCK,
   LOCKSTEP_LOCKED,
-} = require('../lib/constants');
+  LOCKSTEP_UNLOCK,
+} from './constants';
+
 const {ScreepsTestServer} = require('@brisberg/screeps-test-server');
 
 describe('ScreepsMod Lockstep', () => {
-  let server;
-  let db, env, pubsub;
+  let server: typeof ScreepsTestServer;
+  let db: any, env: any, pubsub: any;
 
   beforeEach(async () => {
     // Launch a test server with local mod enabled
     server = new ScreepsTestServer({
-      mods: ['../index.js'],
-      steamApiKey: process.env.STEAM_API_KEY,
+      mods: ['../lib/index.js'],
+      steamApiKey: process.env.STEAM_API_KEY || '',
     });
     ({db, env, pubsub} = server);
     await server.start();
@@ -23,7 +25,7 @@ describe('ScreepsMod Lockstep', () => {
 
   afterEach(() => {
     server.stop();
-    server, db, env, pubsub = undefined;
+    server = db = env = pubsub = undefined;
   })
 
   it('server should be paused on startup', async () => {
@@ -34,7 +36,10 @@ describe('ScreepsMod Lockstep', () => {
      async () => {
        const startTime = await env.get(env.keys.GAMETIME);
        const defer = q.defer();
-       pubsub.subscribe(LOCKSTEP_LOCKED, (gameTime) => defer.resolve(gameTime));
+       pubsub.subscribe(
+           LOCKSTEP_LOCKED,
+           (gameTime: number) => defer.resolve(gameTime),
+       );
 
        pubsub.publish(LOCKSTEP_UNLOCK, 2);
        await defer.promise;
@@ -49,7 +54,10 @@ describe('ScreepsMod Lockstep', () => {
        pubsub.publish(LOCKSTEP_UNLOCK, 2);
 
        const defer = q.defer();
-       pubsub.subscribe(LOCKSTEP_LOCKED, (gameTime) => defer.resolve(gameTime));
+       pubsub.subscribe(
+           LOCKSTEP_LOCKED,
+           (gameTime: number) => defer.resolve(gameTime),
+       );
 
        expect(await defer.promise).toEqual(startTime + 2);
      });

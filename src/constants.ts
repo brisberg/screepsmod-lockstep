@@ -1,9 +1,8 @@
 // Key Constants for Lockstep mod
-module.exports = {
-  // env keys
-  LOCKSTEP_COUNT: 'lockstep:count',
 
-  // pubsub keys
-  LOCKSTEP_LOCKED: 'lockstep:locked',
-  LOCKSTEP_UNLOCK: 'lockstep:unlock',
-};
+// env keys
+export const LOCKSTEP_COUNT = 'lockstep:count';
+
+// pubsub keys
+export const LOCKSTEP_LOCKED = 'lockstep:locked';
+export const LOCKSTEP_UNLOCK = 'lockstep:unlock';

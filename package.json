@@ -21,13 +21,14 @@
   "scripts": {
     "build": "tsc",
     "run": "node lib/index.js",
-    "test": "jest --runInBand",
+    "test": "yarn build && jest --runInBand",
     "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {},
   "devDependencies": {
     "@brisberg/screeps-test-server": "^0.1.2",
     "@types/jest": "^26.0.0",
+    "@types/q": "^1.5.4",
     "@typescript-eslint/eslint-plugin": "^3.4.0",
     "@typescript-eslint/parser": "^3.4.0",
     "clang-format": "^1.4.0",
