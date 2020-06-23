@@ -1,0 +1,28 @@
+{
+  "name": "@brisberg/<package-name>",
+  "version": "0.1.0",
+  "description": "<Description of TypeScript package",
+  "main": "index.js",
+  "keywords": [],
+  "author": "brisberg <brandon.risberg@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "repository": "https://github.com/brisberg/<package-name>.git",
+  "bugs": {
+    "url": "https://github.com/brisberg/<package-name>/issues"
+  },
+  "homepage": "https://github.com/brisberg/<package-name>#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
