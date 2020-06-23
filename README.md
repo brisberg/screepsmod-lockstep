@@ -5,11 +5,14 @@ This is an opinionated toolchain configuration for TypeScript packages published
 
 ## Usage
 
-Add as a remote of your repository:
+Add as a remote of your repository:\
 `git remote add template https://github.com/brisberg/typescript-pkg.git`
 
-Merge changes from template into your repository. Keep any project specific overrides:
-`git merge template/master`
+Merge changes from template into your repository. Be sure to manually keep any project specific overrides:
+```bash
+git fetch template
+git merge template/master --allow-unrelated-histories
+```
 
 ## Actions
 
