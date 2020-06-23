@@ -29,6 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Upgrade Jest to latest (v26)
+
 ## [1.0.0] - 2020-06-23
 ### Added
 - Added default configurations for all tools:
