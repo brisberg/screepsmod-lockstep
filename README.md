@@ -26,4 +26,4 @@ Merge changes from template into your repository. Keep any project specific over
 
 ## Best Practices
 
-- [Keep-a-Changelog])https://keepachangelog.com/en/1.0.0/ - Guide for maintaining a useful, readable Changelog.
+- [Keep-a-Changelog](https://keepachangelog.com/en/1.0.0/) - Guide for maintaining a useful, readable Changelog.
