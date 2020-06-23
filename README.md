@@ -1,35 +1,29 @@
-# typescript-pkg
-Standard project configuration template for @brisberg TypeScript packages.
+# \<package-name>
 
-This is an opinionated toolchain configuration for TypeScript packages published to Github Packages.
-
-## Usage
-
-Add as a remote of your repository:\
-```bash
-git remote add template https://github.com/brisberg/typescript-pkg.git
-```
-
-Merge changes from template into your repository. Be sure to manually keep any project specific overrides:
-```bash
-git fetch template
-git merge template/master --allow-unrelated-histories
-```
-
-Often simply discard and regenerate lockfile:
-```bash
-rm yarn.lock
-yarn install
-```
+Describe this package. Delete the TypeScript Pkg README below.
 
 ## Actions
 
-TypeScript-Pkg provides the following commonly used actions/commands:
 
 `yarn build` - Builds the package, emitting .js and .d.ts files\
 `yarn lint` - Runs lint over the project source\
 `yarn test` - Runs all tests under the src/ directory\
 `yarn publish` - Bumps package version and publishes the package to Github Packages
+
+## Toolchain
+
+Uses [@brisberg/typescript-pkg](https://github.com/brisberg/typescript-pkg) as a template for Toolchain configuration.
+
+See that repo for list of tools, documentation, and upgrade steps.
+
+---
+<!-- typescript-pkg specific README below -->
+
+# TypeScript Pkg (Template)
+
+Standard project configuration template for @brisberg TypeScript packages.
+
+This is an opinionated toolchain configuration for TypeScript packages published to Github Packages.
 
 ## Tools
 
