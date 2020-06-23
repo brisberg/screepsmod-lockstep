@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "<Description of TypeScript package>",
   "main": "lib/index.js",
-  "keywords": [],
+  "keywords": ["typescript"],
   "author": "brisberg <brandon.risberg@gmail.com>",
   "license": "MIT",
   "private": false,
