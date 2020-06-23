@@ -1,5 +1,7 @@
+import {ScreepsConfig} from './constants';
+
 /** Engine component patch */
-function enginePatch(cconfig: any) {
+function enginePatch(cconfig: ScreepsConfig): void {
   cconfig.engine.on('init', async (processType: string) => {
     if (processType === 'main') {
       // Modify engine config instance
@@ -24,7 +26,7 @@ function enginePatch(cconfig: any) {
 
           if (lockstep != undefined && lockstep != null && lockstep <= 0) {
             // Simulate a 'paused' error, special cased in engine/main
-            return Promise.reject('Simulation paused');
+            return Promise.reject(new Error('Simulation paused'));
           }
           return Promise.resolve();
         });
@@ -46,11 +48,11 @@ function enginePatch(cconfig: any) {
             }
             return env.set(env.keys.LOCKSTEP_COUNT, count);
           }
-        })
+        });
       };
     }
   });
-};
+}
 
 // CommonJS Style Export
 export = enginePatch;

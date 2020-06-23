@@ -6,11 +6,16 @@ import {
   LOCKSTEP_UNLOCK,
 } from './constants';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const {ScreepsTestServer} = require('@brisberg/screeps-test-server');
 
 describe('ScreepsMod Lockstep', () => {
   let server: typeof ScreepsTestServer;
-  let db: any, env: any, pubsub: any;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  let env: any;
+  let pubsub: any;
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+
 
   beforeEach(async () => {
     // Launch a test server with local mod enabled
@@ -18,15 +23,15 @@ describe('ScreepsMod Lockstep', () => {
       mods: ['../lib/index.js'],
       steamApiKey: process.env.STEAM_API_KEY || '',
     });
-    ({db, env, pubsub} = server);
+    ({env, pubsub} = server);
     await server.start();
     pubsub.publish('setTickRate', 100);  // 10 ticks per sec
   });
 
   afterEach(() => {
     server.stop();
-    server = db = env = pubsub = undefined;
-  })
+    server = env = pubsub = undefined;
+  });
 
   it('server should be paused on startup', async () => {
     expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
