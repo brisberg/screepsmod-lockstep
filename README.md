@@ -25,6 +25,28 @@ Standard project configuration template for @brisberg TypeScript packages.
 
 This is an opinionated toolchain configuration for TypeScript packages published to Github Packages.
 
+
+## Usage
+
+Add as a remote of your repository:
+```bash
+git remote add toolchain https://github.com/brisberg/typescript-pkg.git
+```
+
+Merge changes from toolchain template into your repository. Be sure to manually keep any project specific overrides:
+```bash
+git fetch toolchain
+git merge toolchain/master --allow-unrelated-histories
+# resolve merge conflicts, keeping project specific overrides and deletions
+```
+
+Often simply discard and regenerate lockfile:
+```bash
+rm yarn.lock
+yarn install
+
+```
+
 ## Tools
 
 - [VSCode](https://code.visualstudio.com/) - Hackable IDE
