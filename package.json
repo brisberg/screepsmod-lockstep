@@ -1,5 +1,5 @@
 {
-  "name": "@brisberg/<package-name>",
+  "name": "@brisberg/package-name",
   "version": "0.1.0",
   "description": "<Description of TypeScript package",
   "main": "index.js",
