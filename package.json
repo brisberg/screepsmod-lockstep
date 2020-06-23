@@ -1,17 +1,17 @@
 {
-  "name": "@brisberg/package-name",
+  "name": "@brisberg/typescript-pkg",
   "version": "0.1.0",
-  "description": "<Description of TypeScript package",
+  "description": "<Description of TypeScript package>",
   "main": "index.js",
   "keywords": [],
   "author": "brisberg <brandon.risberg@gmail.com>",
   "license": "MIT",
   "private": false,
-  "repository": "https://github.com/brisberg/package-name.git",
+  "repository": "https://github.com/brisberg/typescript-pkg.git",
   "bugs": {
-    "url": "https://github.com/brisberg/package-name/issues"
+    "url": "https://github.com/brisberg/typescript-pkg/issues"
   },
-  "homepage": "https://github.com/brisberg/package-name#readme",
+  "homepage": "https://github.com/brisberg/typescript-pkg#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },

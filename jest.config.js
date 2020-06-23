@@ -1,4 +1,6 @@
 module.exports = {
+  // -- Default JestSettings (brisberg/typescript-pkg)
+
   // An array of glob patterns indicating a set of files for which coverage
   // information should be collected
   collectCoverageFrom: ['src/**/*.{js,ts}'],
@@ -18,4 +20,6 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: ['**/*.spec.ts', '!**/node_modules/**', '!**/lib/**'],
+
+  // -- Add package specific configurations below here
 };
