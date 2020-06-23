@@ -19,10 +19,14 @@
     "index.js"
   ],
   "scripts": {
-    "test": "jest --runInBand"
+    "build": "tsc",
+    "run": "node lib/index.js",
+    "test": "jest"
   },
   "dependencies": {},
   "devDependencies": {
-    "jest": "^26.0.1"
+    "@types/jest": "^26.0.0",
+    "jest": "^26.0.1",
+    "typescript": "^3.9.5"
   }
 }
