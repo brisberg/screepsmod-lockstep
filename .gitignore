@@ -1,5 +1,11 @@
 # NPM Modules
-node_modules
+/node_modules
+
+# Built files
+/lib
+
+# Log files
+yarn-error.log
 
 # OS Files
 .DS_Store
@@ -9,6 +15,3 @@ screeps-testing-env
 
 # Screeps Test Server env
 server
-
-# Logs
-yarn-error.log

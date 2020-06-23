@@ -37,10 +37,16 @@ pubsub.publish(pubsub.keys.LOCKSTEP_UNLOCK, 5);
 // Server locked at gameTime: 6
 ```
 
-### Development
+---
 
-Clone this repo.\
-```yarn install```
+## Development
+
+### Actions
+
+`yarn build` - Builds the package, emitting .js and .d.ts files\
+`yarn lint` - Runs lint over the project source\
+`yarn test` - Runs all tests under the src/ directory\
+`yarn publish` - Bumps package version and publishes the package to Github Packages
 
 ### Testing
 
@@ -57,3 +63,9 @@ Create a file named `screeps-testing-env` at the project root. Add your secure t
 // Configure your SteamWebApi key
 STEAM_API_KEY = <Your Steam Token>
 ```
+
+## Toolchain
+
+Uses [@brisberg/typescript-pkg](https://github.com/brisberg/typescript-pkg) as a template for Toolchain configuration.
+
+See that repo for list of tools, documentation, and upgrade steps.
