@@ -1,3 +1,4 @@
+import {ScreepsTestServer} from '@brisberg/screeps-test-server';
 import q from 'q';
 
 import {
@@ -6,11 +7,8 @@ import {
   LOCKSTEP_UNLOCK,
 } from './constants';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const {ScreepsTestServer} = require('@brisberg/screeps-test-server');
-
 describe('ScreepsMod Lockstep', () => {
-  let server: typeof ScreepsTestServer;
+  let server: ScreepsTestServer|undefined;
   /* eslint-disable @typescript-eslint/no-explicit-any */
   let env: any;
   let pubsub: any;
@@ -29,7 +27,9 @@ describe('ScreepsMod Lockstep', () => {
   });
 
   afterEach(() => {
-    server.stop();
+    if (server) {
+      server.stop();
+    }
     server = env = pubsub = undefined;
   });
 

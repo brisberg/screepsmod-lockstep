@@ -3,6 +3,7 @@
   "version": "1.1.2",
   "description": "A Screeps Server Mod which prevents the server from ticking unless a tick() is requested. Suitable for unit/integration testing of scripts where you need fine-grained control over tick events.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "typescript",
     "screeps",
@@ -25,7 +26,7 @@
     "lint": "eslint \"src/**/*.ts\""
   },
   "devDependencies": {
-    "@brisberg/screeps-test-server": "^0.1.2",
+    "@brisberg/screeps-test-server": "^0.2.0",
     "@types/jest": "^26.0.0",
     "@types/q": "^1.5.4",
     "@typescript-eslint/eslint-plugin": "^3.4.0",

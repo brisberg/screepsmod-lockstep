@@ -272,10 +272,10 @@
     lodash "^3.10.1"
     q "^1.4.1"
 
-"@brisberg/screeps-test-server@^0.1.2":
-  version "0.1.2"
-  resolved "https://npm.pkg.github.com/download/@brisberg/screeps-test-server/0.1.2/cd162965d2200fdb25a839f95ab625eb563d9aa2af7d712760df52f7f3f9fe5b#9b5753dfb97d10fc5bb75ca13b48e124670b0bf9"
-  integrity sha512-ClP4dIcZT8IlIBPOwRNnd+IHK8p5Yega0qoMUuz9/TOTE8dA1x7Y4F29TZbIMUEEb6eaPFh91OyGOlF/x3pXJw==
+"@brisberg/screeps-test-server@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@brisberg/screeps-test-server/-/screeps-test-server-0.2.0.tgz#3af2eb45bc2ce2b7af140441d29b215fcb47f84e"
+  integrity sha512-XwhrQYnOpg4ZLNkW3N21B+0Eb+XisqDrd4iVajtcQfGQ3xh/twxQcGhV4eSCf5ElJBgtfe4f/IWC4/CBvqnKKg==
   dependencies:
     "@brisberg/common" "github:brisberg/common#no-storage-restart"
 
