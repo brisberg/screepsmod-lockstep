@@ -14,7 +14,7 @@ Describe this package. Delete the TypeScript Pkg README below.
 
 Uses [@brisberg/typescript-pkg](https://github.com/brisberg/typescript-pkg) as a template for Toolchain configuration.
 
-See that repo for list of tools, documentation, and upgrade steps.
+See that repo for a list of tools, documentation, and upgrade steps.
 
 ---
 <!-- typescript-pkg specific README below -->
