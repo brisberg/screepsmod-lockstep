@@ -4,19 +4,19 @@
   "description": "A Screeps Server Mod which prevents the server from ticking unless a tick() is requested. Suitable for unit/integration testing of scripts where you need fine-grained control over tick events.",
   "main": "lib/index.js",
   "keywords": [
+    "typescript",
     "screeps",
     "mod"
   ],
   "author": "brisberg <brandon.risberg@gmail.com>",
   "license": "MIT",
-  "private": false,
   "repository": "https://github.com/brisberg/screepsmod-lockstep.git",
   "bugs": {
     "url": "https://github.com/brisberg/screepsmod-lockstep/issues"
   },
   "homepage": "https://github.com/brisberg/screepsmod-lockstep#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "tsc",
@@ -24,7 +24,6 @@
     "test": "yarn build && jest --runInBand",
     "lint": "eslint \"src/**/*.ts\""
   },
-  "dependencies": {},
   "devDependencies": {
     "@brisberg/screeps-test-server": "^0.1.2",
     "@types/jest": "^26.0.0",
