@@ -1,8 +1,9 @@
 {
   "name": "@brisberg/typescript-pkg",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "<Description of TypeScript package>",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "typescript"
   ],
@@ -16,7 +17,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "private": false,
   "scripts": {
     "build": "tsc",
     "run": "node lib/index.js",
