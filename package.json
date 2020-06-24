@@ -21,7 +21,6 @@
   },
   "scripts": {
     "build": "tsc",
-    "run": "node lib/index.js",
     "test": "yarn build && jest --runInBand",
     "lint": "eslint \"src/**/*.ts\""
   },
