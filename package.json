@@ -1,27 +1,28 @@
 {
   "name": "@brisberg/typescript-pkg",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "<Description of TypeScript package>",
   "main": "lib/index.js",
-  "keywords": [],
+  "keywords": [
+    "typescript"
+  ],
   "author": "brisberg <brandon.risberg@gmail.com>",
   "license": "MIT",
-  "private": false,
   "repository": "https://github.com/brisberg/typescript-pkg.git",
   "bugs": {
     "url": "https://github.com/brisberg/typescript-pkg/issues"
   },
   "homepage": "https://github.com/brisberg/typescript-pkg#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
+  "private": false,
   "scripts": {
     "build": "tsc",
     "run": "node lib/index.js",
     "test": "jest",
     "lint": "eslint \"src/**/*.ts\""
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "@typescript-eslint/eslint-plugin": "^3.4.0",

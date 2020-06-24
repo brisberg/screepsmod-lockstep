@@ -33,18 +33,40 @@ Add as a remote of your repository:
 git remote add toolchain https://github.com/brisberg/typescript-pkg.git
 ```
 
-Merge changes from toolchain template into your repository. Be sure to manually keep any project specific overrides:
+Merge changes from toolchain template into your repository. Be sure to manually keep any project specific overrides.
+
+Latest directly from master:
 ```bash
-git fetch toolchain
+git fetch toolchain --no-tags
 git merge toolchain/master --allow-unrelated-histories
-# resolve merge conflicts, keeping project specific overrides and deletions
 ```
+
+Or, latest stable release:
+```bash
+git fetch toolchain \
+		$(git ls-remote --tags --refs --sort=\"version:refname\" toolchain \
+		| awk -F/ 'END{print$NF}')
+git merge FETCH_HEAD --allow-unrelated-histories
+```
+
+**Note**: Recommended to make a `git alias` for the above command
+
+Resolve merge conflicts, keeping project specific overrides and deletions.
 
 Often simply discard and regenerate lockfile:
 ```bash
 rm yarn.lock
 yarn install
+```
 
+Verify tests still pass before committing:
+```bash
+yarn test
+# Tests pass
+git add .
+git merge --continue
+# Tests fail (debug or bail)
+git merge --abort
 ```
 
 ## Tools
