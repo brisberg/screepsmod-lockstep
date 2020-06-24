@@ -16,7 +16,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "private": false,
   "scripts": {
     "build": "tsc",
     "run": "node lib/index.js",
