@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/brisberg/typescript-pkg#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "build": "tsc",
