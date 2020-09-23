@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "yarn build && jest --runInBand",
+    "test": "jest --runInBand",
     "lint": "eslint \"src/**/*.ts\""
   },
   "devDependencies": {

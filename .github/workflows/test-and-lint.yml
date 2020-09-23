@@ -2,54 +2,131 @@ name: Yarn (Build, Tests, and Lint)
 
 on: [push]
 
-base-config: &node-yarn
-  runs-on: ubuntu-latest
-
-  strategy:
-    matrix:
-      node-version: [10.x]
-
-  steps:
-    # Setup Runner with node
-  - uses: actions/checkout@v1
-  - name: Use Node.js ${{ matrix.node-version }}
-    uses: actions/setup-node@v1
-    with:
-      node-version: ${{ matrix.node-version }}
-
-    # Cache yarn dependencies for future runs
-    # https://github.com/actions/cache/blob/master/examples.md#node---yarn
-  - name: Get yarn cache directory path
-    id: yarn-cache-dir-path
-    run: echo "::set-output name=dir::$(yarn cache dir)"
-
-  - name: actions/cache@v2 (.yarn)
-    uses: actions/cache@v2
-    id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-    with:
-      path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      restore-keys: |
-        ${{ runner.os }}-yarn-
-
-  - name: yarn install
-    run: yarn install --frozen-lockfile
-
 jobs:
   build:
-    <<: *node-yarn
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
     steps:
+      # Setup Runner with node
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+      # Cache yarn dependencies for future runs
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: actions/cache@v2 (.yarn)
+      uses: actions/cache@v2
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: yarn install
+      run: yarn install --frozen-lockfile
+
     - name: yarn run build
       run: yarn run build
+    - name: Upload built files
+      uses: actions/upload-artifact@v2
+      with:
+        name: lib
+        path: lib
 
   test:
-    <<: *node-yarn
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
     steps:
+      # Setup Runner with node
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+      # Cache yarn dependencies for future runs
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: actions/cache@v2 (.yarn)
+      uses: actions/cache@v2
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: yarn install
+      run: yarn install --frozen-lockfile
+
+
+    - name: Download built files
+      uses: actions/download-artifact@v2
+      with:
+        name: lib
+        path: lib
+
     - name: yarn run test
       run: yarn run test
 
   lint:
-    <<: *node-yarn
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
     steps:
+      # Setup Runner with node
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+      # Cache yarn dependencies for future runs
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: actions/cache@v2 (.yarn)
+      uses: actions/cache@v2
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: yarn install
+      run: yarn install --frozen-lockfile
+
+    - name: Download built files
+      uses: actions/download-artifact@v2
+      with:
+        name: lib
+        path: lib
+
     - name: yarn run lint
       run: yarn run lint
