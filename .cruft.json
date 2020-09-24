@@ -1,0 +1,16 @@
+{
+    "template": "https://github.com/brisberg/typescript-pkg-cruft",
+    "commit": "c29424421067ddb7db9737473c9462d82fef885c",
+    "context": {
+        "cookiecutter": {
+            "full_name": "Brandon Risberg",
+            "email": "brandon.risberg@gmail.com",
+            "github_username": "brisberg",
+            "project_name": "screepsmod-lockstep",
+            "description": "A Screeps Server Mod which prevents the server from ticking unless a tick() is requested. Suitable for unit/integration testing of scripts where you need fine-grained control over tick events.",
+            "version": "1.2.0",
+            "_template": "https://github.com/brisberg/typescript-pkg-cruft"
+        }
+    },
+    "directory": null
+}
