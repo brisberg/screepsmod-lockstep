@@ -11,6 +11,7 @@
   ],
   "author": "brisberg <brandon.risberg@gmail.com>",
   "license": "MIT",
+  "private": false,
   "repository": "https://github.com/brisberg/screepsmod-lockstep.git",
   "bugs": {
     "url": "https://github.com/brisberg/screepsmod-lockstep/issues"
