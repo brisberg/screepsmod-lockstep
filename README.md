@@ -1,5 +1,6 @@
 # Lockstep (Screeps Server Mod)
-Lockstep will prevents the server from ticking unless a tick is specifically requested. Suitable for unit/integration testing of scripts where you need fine grained control over tick events.
+
+A Screeps Server Mod which prevents the server from ticking unless a tick() is requested. Suitable for unit/integration testing of scripts where you need fine-grained control over tick events.
 
 ## Installation
 
@@ -66,6 +67,6 @@ STEAM_API_KEY = <Your Steam Token>
 
 ## Toolchain
 
-Uses [@brisberg/typescript-pkg](https://github.com/brisberg/typescript-pkg) as a template for Toolchain configuration.
+Uses [@brisberg/cruft-typescript-pkg](https://github.com/brisberg/cruft-typescript-pkg) as a template for Toolchain configuration.
 
 See that repo for a list of tools, documentation, and upgrade steps.
