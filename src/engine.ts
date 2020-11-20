@@ -14,7 +14,7 @@ function enginePatch(cconfig: ScreepsConfig): void {
 
       // Subscribe to requests for tick
       pubsub.subscribe(pubsub.keys.LOCKSTEP_UNLOCK, async (ticks: number) => {
-        console.log(`lockstep: unlocked for ${ticks} ticks`);
+        // console.log(`lockstep: unlocked for ${ticks} ticks`);
         await env.set(env.keys.LOCKSTEP_COUNT, ticks);
       });
 
@@ -22,9 +22,8 @@ function enginePatch(cconfig: ScreepsConfig): void {
       const oldNotifyTickStarted = driver.notifyTickStarted;
       driver.notifyTickStarted = () => {
         return oldNotifyTickStarted().then(async () => {
-          console.log('lockstep:notifyTickStarted');
+          // console.log('lockstep:notifyTickStarted');
           const lockstep = await env.get(env.keys.LOCKSTEP_COUNT);
-          console.log(`lockstep = ${lockstep}`);
 
           if (lockstep != undefined && lockstep != null && lockstep <= 0) {
             // Simulate a 'paused' error, special cased in engine/main

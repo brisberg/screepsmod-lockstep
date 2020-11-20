@@ -28,9 +28,7 @@ describe('ScreepsMod Lockstep', () => {
       steamApiKey: process.env.STEAM_API_KEY || '',
     });
     ({env, pubsub} = server);
-    console.log('starting server');
     await server.start();
-    console.log('setting tick rate to 100');
     pubsub.publish('setTickRate', 100);  // 10 ticks per sec
     await sleep(100);
   });
