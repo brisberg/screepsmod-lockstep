@@ -14,6 +14,7 @@ function enginePatch(cconfig: ScreepsConfig): void {
 
       // Subscribe to requests for tick
       pubsub.subscribe(pubsub.keys.LOCKSTEP_UNLOCK, async (ticks: number) => {
+        // console.log(`lockstep: unlocked for ${ticks} ticks`);
         await env.set(env.keys.LOCKSTEP_COUNT, ticks);
       });
 
