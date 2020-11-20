@@ -26,6 +26,7 @@ describe('ScreepsMod Lockstep', () => {
     await server.start();
     console.log('setting tick rate to 100');
     pubsub.publish('setTickRate', 100);  // 10 ticks per sec
+    jest.runAllTimers();
   });
 
   afterEach(async () => {
@@ -39,21 +40,19 @@ describe('ScreepsMod Lockstep', () => {
     expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
   });
 
-  it('should progress two ticks when server unlocked for two ticks',
-     async () => {
-       const startTime = await env.get(env.keys.GAMETIME);
-       const defer = q.defer();
-       pubsub.subscribe(
-           LOCKSTEP_LOCKED,
-           (gameTime: number) => defer.resolve(gameTime),
-       );
+  it('should progress two ticks when unlocked for two ticks', async () => {
+    const startTime = await env.get(env.keys.GAMETIME);
+    const defer = q.defer<number>();
+    pubsub.subscribe(LOCKSTEP_LOCKED, (gameTime: number) => {
+      defer.resolve(gameTime);
+    });
 
-       pubsub.publish(LOCKSTEP_UNLOCK, 2);
-       await defer.promise;
+    pubsub.publish(LOCKSTEP_UNLOCK, 2);
+    await defer.promise;
 
-       expect(await env.get(env.keys.GAMETIME)).toEqual(startTime + 2);
-       expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
-     });
+    expect(await env.get(env.keys.GAMETIME)).toEqual(startTime + 2);
+    expect(await env.get(LOCKSTEP_COUNT)).toEqual(0);
+  });
 
   it('should publish gametime over Pubsub when server becomes locked',
      async () => {
@@ -61,10 +60,9 @@ describe('ScreepsMod Lockstep', () => {
        pubsub.publish(LOCKSTEP_UNLOCK, 2);
 
        const defer = q.defer<number>();
-       pubsub.subscribe(
-           LOCKSTEP_LOCKED,
-           (gameTime: number) => defer.resolve(gameTime),
-       );
+       pubsub.subscribe(LOCKSTEP_LOCKED, (gameTime: number) => {
+         defer.resolve(gameTime);
+       });
 
        expect(await defer.promise).toEqual(startTime + 2);
      });
