@@ -7,8 +7,11 @@ import {
   LOCKSTEP_UNLOCK,
 } from './constants';
 
-/** Sleep for m milliseconds */
-const sleep = (m: number) => new Promise(r => setTimeout(r, m))
+/**
+ * Sleep for m milliseconds
+ * https://stackoverflow.com/a/48882182
+ */
+const sleep = (m: number) => new Promise((r) => setTimeout(r, m));
 
 describe('ScreepsMod Lockstep', () => {
   let server: ScreepsTestServer|undefined;
