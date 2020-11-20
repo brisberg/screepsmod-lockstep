@@ -7,6 +7,9 @@ import {
   LOCKSTEP_UNLOCK,
 } from './constants';
 
+/** Sleep for m milliseconds */
+const sleep = (m: number) => new Promise(r => setTimeout(r, m))
+
 describe('ScreepsMod Lockstep', () => {
   let server: ScreepsTestServer|undefined;
   /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -26,7 +29,7 @@ describe('ScreepsMod Lockstep', () => {
     await server.start();
     console.log('setting tick rate to 100');
     pubsub.publish('setTickRate', 100);  // 10 ticks per sec
-    jest.runAllTimers();
+    await sleep(100);
   });
 
   afterEach(async () => {
@@ -42,10 +45,8 @@ describe('ScreepsMod Lockstep', () => {
 
   it('should progress two ticks when unlocked for two ticks', async () => {
     const startTime = await env.get(env.keys.GAMETIME);
-    const defer = q.defer<number>();
-    pubsub.subscribe(LOCKSTEP_LOCKED, (gameTime: number) => {
-      defer.resolve(gameTime);
-    });
+    const defer = q.defer();
+    pubsub.subscribe(LOCKSTEP_LOCKED, () => defer.resolve());
 
     pubsub.publish(LOCKSTEP_UNLOCK, 2);
     await defer.promise;
