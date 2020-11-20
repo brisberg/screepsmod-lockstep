@@ -58,7 +58,7 @@ describe('ScreepsMod Lockstep', () => {
        const startTime = await env.get(env.keys.GAMETIME);
        pubsub.publish(LOCKSTEP_UNLOCK, 2);
 
-       const defer = q.defer();
+       const defer = q.defer<number>();
        pubsub.subscribe(
            LOCKSTEP_LOCKED,
            (gameTime: number) => defer.resolve(gameTime),
