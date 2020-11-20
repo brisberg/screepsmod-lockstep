@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest",
+    "test": "yarn build && jest",
     "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {
