@@ -1,6 +1,6 @@
 {
     "template": "https://github.com/brisberg/typescript-pkg-cruft",
-    "commit": "1a4aa3402ad678cc63341c3dbc9c81cd7064b9a4",
+    "commit": "e09284772ab8b489ba5d0d6d17c5eafbd9603666",
     "context": {
         "cookiecutter": {
             "full_name": "Brandon Risberg",
